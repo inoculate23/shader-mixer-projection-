@@ -1,0 +1,12 @@
+import {mkdir,readFile,writeFile,rm} from 'node:fs/promises';
+await rm('dist',{recursive:true,force:true});await mkdir('dist');
+const read=file=>readFile(file,'utf8');
+const inline=code=>code.replace(/import\s+[^;]*?from\s+['"][^'"]+['"];?/g,'').replace(/\bexport\s+(?=class|function|const)/g,'').replace(/<\/script/gi,'<\\/script');
+const css=await read('style.css');
+const app=(await Promise.all(['src/model.js','src/automation.js','src/audio.js','src/renderer.js','src/video.js','src/app.js'].map(read))).map(inline).join('\n');
+let html=await read('index.html');
+html=html.replace('<link rel="stylesheet" href="style.css">',`<style>${css}</style>`).replace('<script type="module" src="src/app.js"></script>',`<script type="module">${app}</script>`);
+await writeFile('dist/index.html',html);
+let output=await read('output.html');
+await writeFile('dist/output.html',output);
+console.log('Built self-contained index.html and output.html; no external app scripts, styles, or dependencies.');
