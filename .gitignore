@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.netlify/
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+Thumbs.db
+
+*.log
+coverage/
+__pycache__/
+*.pyc
