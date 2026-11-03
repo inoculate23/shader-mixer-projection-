@@ -80,17 +80,17 @@ The following features are planned for future development and are not yet implem
 
 ### 1. Video Input Support
 
-- Import and play local video files.
+- Import and play local video files. DONE
 
-- Use video sources independently on either mixer deck.
+- Use video sources independently on either mixer deck. DONE
 
 - Support live camera and capture-device input.
 
 - Apply shaders and visual effects to video sources.
 
-- Crossfade between video, procedural shaders, and mixed content.
+- Crossfade between video, procedural shaders, and mixed content. DONE
 
-- Add playback speed, looping, seeking, and transport controls.
+- Add playback speed, looping, seeking, and transport controls. DONE
 
 - Support common browser-compatible video formats.
 
